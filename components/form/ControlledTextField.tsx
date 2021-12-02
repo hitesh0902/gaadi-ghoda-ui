@@ -4,10 +4,12 @@ import ErrorMessage from './ErrorMessage';
 
 interface ControlledTextFieldProps extends UseControllerProps {
   label?: string;
+  rightIcon?: React.ReactElement;
 }
 
 const ControlledTextField: React.FC<ControlledTextFieldProps> = ({
   label,
+  rightIcon,
   ...rest
 }) => {
   const {
@@ -19,13 +21,20 @@ const ControlledTextField: React.FC<ControlledTextFieldProps> = ({
   return (
     <div className="flex flex-col gap-1">
       {label && <label htmlFor={field.name}>{label}</label>}
-      <input
-        className="border border-gray-400 rounded p-1"
-        id={field.name}
-        type="text"
-        {...field}
-        disabled={isSubmitting}
-      />
+      <div className="relative">
+        <input
+          className="border border-black rounded p-1"
+          id={field.name}
+          type="text"
+          {...field}
+          disabled={isSubmitting}
+        />
+        {rightIcon && (
+          <span className="absolute inset-y-0 right-2 pointer-events-none flex items-center">
+            {rightIcon}
+          </span>
+        )}
+      </div>
       <ErrorMessage message={error?.message} />
     </div>
   );

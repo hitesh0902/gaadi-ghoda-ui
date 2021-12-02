@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
+import { FiSend } from 'react-icons/fi';
 import Button from '../components/Button';
 import ControlledTextField from '../components/form/ControlledTextField';
 
@@ -29,16 +30,22 @@ const Home: NextPage = () => {
         </div>
       </main>
       <form
-        className="my-10 flex flex-col items-center gap-5"
+        className="my-10 flex flex-col items-center gap-2"
         onSubmit={handleSubmit(onSubmit)}
       >
         <ControlledTextField
           control={control}
           name="username"
           label="Username"
+          rightIcon={<FiSend />}
           rules={{ required: 'Required', min: 6 }}
         />
-        <Button label="Submit" type="submit" />
+        <Button
+          label="Submit"
+          type="submit"
+          leftIcon={<FiSend />}
+          rightIcon={<FiSend />}
+        />
       </form>
     </div>
   );
