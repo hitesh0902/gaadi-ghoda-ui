@@ -1,10 +1,13 @@
 import React from 'react';
 
+export type ButtonType = 'button' | 'submit' | 'reset';
+
 interface ButtonProps {
   label: string;
   onClick?(): void;
   disabled?: boolean;
   isLoading?: boolean;
+  type?: ButtonType;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -12,14 +15,16 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled,
   isLoading,
+  type,
 }) => {
   return (
     <button
       onClick={onClick}
       className="p-2 rounded bg-primary text-white"
-      disabled={disabled}
+      disabled={disabled || isLoading}
+      type={type}
     >
-      <p>{label}</p>
+    {label}
     </button>
   );
 };
