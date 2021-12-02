@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="p-2 rounded bg-primary text-white flex items-center gap-2"
+      className='p-2 rounded bg-primary text-white flex items-center gap-2'
       disabled={disabled || isLoading}
       type={type}
     >

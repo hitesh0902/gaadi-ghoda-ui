@@ -19,18 +19,18 @@ const ControlledTextField: React.FC<ControlledTextFieldProps> = ({
   } = useController(rest);
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className='flex flex-col gap-1'>
       {label && <label htmlFor={field.name}>{label}</label>}
-      <div className="relative">
+      <div className='relative'>
         <input
-          className="border border-black rounded p-1"
+          className='border border-black rounded p-1'
           id={field.name}
-          type="text"
+          type='text'
           {...field}
           disabled={isSubmitting}
         />
         {rightIcon && (
-          <span className="absolute inset-y-0 right-2 pointer-events-none flex items-center">
+          <span className='absolute inset-y-0 right-2 pointer-events-none flex items-center'>
             {rightIcon}
           </span>
         )}

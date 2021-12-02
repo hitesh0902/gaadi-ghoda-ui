@@ -9,7 +9,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => {
     return null;
   }
 
-  return <p className="text-error">{message}</p>;
+  return <p className='text-error'>{message}</p>;
 };
 
 export default ErrorMessage;
