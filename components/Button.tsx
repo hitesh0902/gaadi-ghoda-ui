@@ -8,6 +8,8 @@ interface ButtonProps {
   disabled?: boolean;
   isLoading?: boolean;
   type?: ButtonType;
+  leftIcon?: React.ReactElement;
+  rightIcon?: React.ReactElement;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,15 +18,19 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   isLoading,
   type,
+  leftIcon,
+  rightIcon,
 }) => {
   return (
     <button
       onClick={onClick}
-      className="p-2 rounded bg-primary text-white"
+      className="p-2 rounded bg-primary text-white flex items-center gap-2"
       disabled={disabled || isLoading}
       type={type}
     >
-    {label}
+      {leftIcon && <span>{leftIcon}</span>}
+      {label && <span>{label}</span>}
+      {rightIcon && <span>{rightIcon}</span>}
     </button>
   );
 };
